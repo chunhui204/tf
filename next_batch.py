@@ -10,6 +10,7 @@ def next_batch(batch_size):
     global mnist_train_labels
     
     start = start+batch_size
+    #if finish an epoch, permutate data randomly
     if start >= mnist_train_images.shape[0]:
         start = 0
         # not essential to specify a seed for permutation, np.random.permutation has different results every time
