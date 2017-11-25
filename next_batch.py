@@ -12,6 +12,7 @@ def next_batch(batch_size):
     start = start+batch_size
     if start >= mnist_train_images.shape[0]:
         start = 0
+        # not essential to specify a seed for permutation, np.random.permutation has different results every time
         permutation = np.random.permutation(mnist_train_images.shape[0])
         mnist_train_images = mnist_train_images[permutation,:]
         mnist_train_labels = mnist_train_labels[permutation,:]
