@@ -18,7 +18,7 @@ def _batch_norm(x, istraining):
                                 initializer=tf.constant_initializer(1.0),
                                 trainable = False)
     def bn_tarining():
-        mean, variance = tf.nn.moments(x, axis=[0,1,2])
+        mean, variance = tf.nn.moments(x, axes=[0,1,2])
         #moving average具体操作，定义依赖关系，先更新moving变量再求这层的bn
         update_moving_mean = tf.assign(moving_mean, BN_DECAY*moving_mean + (1-BN_DECAY)*mean)
         update_moving_variance = tf.assign(moving_variance, BN_DECAY*moving_variance + (1-BN_DECAY)*variance)
